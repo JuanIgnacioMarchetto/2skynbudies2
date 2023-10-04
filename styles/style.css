@@ -1,3 +1,4 @@
+*{font-size:  10px;}
 :root {
   --light-blue: rgb(226, 74, 176);
   --dark-blue: rgb(204, 100, 223);
@@ -62,7 +63,7 @@ body {
   position: fixed;
   z-index: 1;
 }
-a{color:aquamarine
+a{
 }
 
 #circle {
@@ -104,55 +105,75 @@ a{color:aquamarine
 }
 
 #app {
+  position: absolute;
   display: grid;
   height: 100vh;
   place-items: center;
-  position: relative;
+  top: -100px;
   width: 100vw;
   z-index: 2;
 }
+/* Estilos para el menú de navegación (nav) */
+
+/* Estilos para el menú de navegación (nav) */
 
 #nav {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  left: 0px;
+  background-color: var(--dark-blue);
+  padding: 10px 0;
   position: fixed;
-  top: 0px;
-  width: 120px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 #nav-items {
-  align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 120px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%; /* Cambiamos el ancho máximo a 100% para que sea completamente adaptable */
+  padding: 0 10px; /* Reducimos el espaciado horizontal en pantallas más pequeñas */
 }
 
-#nav-items > .nav-item {
+.nav-item {
+  list-style: none;
+  margin: 0 10px; /* Reducimos el espaciado horizontal en pantallas más pequeñas */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px; /* Reducimos el tamaño de fuente del texto del menú en pantallas más pequeñas */
+}
+
+/* Cambio de color de fondo al pasar el mouse por encima */
+.nav-item:hover {
+  background-color: var(--light-blue);
   border-radius: 6px;
-  cursor: pointer;
-  display: grid;
-  height: 100px;
-  place-items: center;
-  transition: background-color 250ms;
-  width: 100px;
+  transition: background-color 0.3s;
 }
 
-#nav-items > .nav-item:hover {
-  background-color: rgba(255, 255, 255, 0.04);
+/* Íconos del menú */
+.nav-item i {
+  font-size: 20px; /* Reducimos el tamaño de fuente de los íconos en pantallas más pequeñas */
+  margin-right: 5px;
 }
 
-#nav-items > .nav-item:hover > i {
-  color: rgba(255, 255, 255, 0.9); 
+/* Media query para hacer el menú responsive en pantallas más pequeñas */
+@media (max-width: 768px) {
+  #nav {
+    padding: 10px; /* Reducción del espaciado en pantallas más pequeñas */
+  }
+
+  .nav-item {
+    margin: 0 5px; /* Reducimos aún más el espaciado horizontal en pantallas más pequeñas */
+  }
+
+  .nav-item i {
+    font-size: 8px; /* Reducimos aún más el tamaño de fuente de los íconos en pantallas más pequeñas */
+  }
 }
 
-#nav-items > .nav-item > i {
-  color: rgba(255, 255, 255, 0.4); 
-  font-size: 2.5em;
-  transition: color 250ms;
-}
 
 #profiles {
   display: flex;
@@ -208,7 +229,7 @@ a{color:aquamarine
 .profile > .profile-content > .profile-name {
   color: white;
   font-family: 'Rubik', sans-serif;
-  font-size: clamp(1em, 2vw, 2em);
+ 
   margin: 0px;
   text-align: center;
 }
@@ -230,7 +251,6 @@ a{color:aquamarine
   }
 
   #nav-items > .nav-item > i {
-    font-size: 1.5em;
   }
 }
 
@@ -274,4 +294,102 @@ a{color:aquamarine
 .link > span {
   color: white;
   font-family: "Rubik", sans-serif;
+}
+
+
+body {
+    background: linear-gradient(
+        to right, 
+        var(--background-left), 
+        var(--background-right)
+    );
+    margin: 0;
+    padding: 0;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--dark-blue);
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+#nav-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.nav-item {
+    color: white;
+}
+
+#app {
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.profile {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.profile-pic-image {
+    width: 100%;
+    max-width: 200px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.profile-name {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#youtube-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+#youtube-link i {
+    font-size: 24px;
+}
+
+@media (min-width: 768px) {
+    /* Media query for tablets and larger screens */
+
+    body {
+    }
+
+    #nav {
+        padding: 10px 20px;
+    }
+
+    .nav-item {
+    }
+
+    .profile-pic-image {
+        max-width: 250px;
+    }
+
+    .profile-name {
+    }
 }
